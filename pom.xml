@@ -15,6 +15,7 @@
 
     <modules>
         <module>dokr-helloworld</module>
+        <module>dokr-helloworld-xml</module>
     </modules>
 
 </project>

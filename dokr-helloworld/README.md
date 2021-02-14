@@ -7,7 +7,7 @@ Here, I created Dockerfile manually, you can create Dockerfile in any directory 
 
 Once you're done with your setup, please run below commands in your terminal. This will create a jar file, copy the jar into the image, and deploy to the local docker image repository.
 Note: Make sure you've running instance of the docker in your local machine.
-```Java
+```maven
 cd dokr-helloworld
 mvn clean package k8s:build -Pcontext-and-file
 ```
