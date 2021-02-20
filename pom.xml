@@ -14,8 +14,9 @@
     </properties>
 
     <modules>
-        <module>dokr-helloworld</module>
-        <module>dokr-helloworld-xml</module>
+        <module>docker-helloworld</module>
+        <module>docker-helloworld-xml</module>
+        <module>docker-helloworld-acr</module>
     </modules>
 
 </project>
