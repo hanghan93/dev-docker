@@ -15,7 +15,7 @@ git clone https://github.com/hanghan93/jkube-k8s-maven.git
 
 Once you're done with your setup, please run below commands in your terminal. This will create a jar file, copy the jar into the image, and deploy to the local docker image repository.
 Note: Make sure you've the running instance of the docker in your local machine.
-```maven
+```sh
 cd docker-helloworld-simple
 mvn clean package k8s:build
 ```
@@ -26,4 +26,8 @@ t-cli of goal org.eclipse.jkube:kubernetes-maven-plugin:1.1.0:build failed: No <
  '/var/run/docker.sock' or '//./pipe/docker_engine' and no external provider like Docker machine configured -> [Help 1]
 [ERROR]
 ```
-![alt text](http://url/to/img.png)
+You can check docker image in your local repository by running below command.
+ ```sh
+docker image ls
+ ```
+![Screenshot](src\main\resources\refImg\docker.JPG)
