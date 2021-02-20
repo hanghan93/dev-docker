@@ -14,7 +14,7 @@
     </properties>
 
     <modules>
-        <module>docker-helloworld</module>
+        <module>docker-helloworld-simple</module>
         <module>docker-helloworld-xml</module>
         <module>docker-helloworld-acr</module>
     </modules>
