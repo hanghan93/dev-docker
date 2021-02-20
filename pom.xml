@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>dev-docker</artifactId>
+    <artifactId>jkube-k8s-maven</artifactId>
     <packaging>pom</packaging>
     <version>1.0-parent</version>
 
