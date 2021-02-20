@@ -26,3 +26,4 @@ t-cli of goal org.eclipse.jkube:kubernetes-maven-plugin:1.1.0:build failed: No <
  '/var/run/docker.sock' or '//./pipe/docker_engine' and no external provider like Docker machine configured -> [Help 1]
 [ERROR]
 ```
+![alt text](http://url/to/img.png)
