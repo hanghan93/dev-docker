@@ -47,4 +47,4 @@ da654bc8bc80: Mounted from hanghan93/dokr-helloworld-acr
 [INFO] k8s: latest: digest: sha256:a87338621b27a86f2c7c75199e32f0b6bdf4fdd4ab5bba3285c07e2761fd8ff5 size: 2006
 ```
 At the end, please check the image in ACR
-[Screenshot]()
+[Screenshot](https://github.com/hanghan93/jkube-k8s-maven/blob/master/docker-helloworld-acr/src/main/resources/img/tempsnip.png)
