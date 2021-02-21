@@ -10,9 +10,6 @@
     <artifactId>docker-helloworld-acr</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <jkube.build.pullSecret>arc-aks-secret</jkube.build.pullSecret>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jkube</groupId>
@@ -20,6 +17,7 @@
             <version>${jkube.version}</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -37,55 +35,39 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>hanghan93/docker-helloworld-acr</name>
+                            <build>
+                                <from>openjdk:8</from>
+                                <assembly>
+                                    <targetDir>/deployments</targetDir>
+                                    <inline>
+                                        <fileSets>
+                                            <fileSet>
+                                                <directory>${project.build.directory}/docker-helloworld-acr-1.0-SNAPSHOT-spring-boot.jar</directory>
+                                            </fileSet>
+                                        </fileSets>
+                                    </inline>
+                                </assembly>
+                                <workdir>/deployments</workdir>
+                                <cmd>java -jar docker-helloworld-acr-1.0-SNAPSHOT-spring-boot.jar</cmd>
+                            </build>
+                        </image>
+                    </images>
+                    <registry>acrfcngrptest.azurecr.io</registry>
+                    <authConfig>
+                        <push>
+                            <username>acrfcngrptest</username>
+                            <password>W+YevDpvqA4FALYU5E7nopqn3HjdvW9k</password>
+                        </push>
+                    </authConfig>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-    <profiles>
-        <profile>
-            <id>context-and-file</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.jkube</groupId>
-                        <artifactId>kubernetes-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>resource</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <images>
-                                <image>
-                                    <registry>acrfcngrptest.azurecr.io</registry>
-                                    <name>hanghan93/dokr-helloworld-acr</name>
-                                    <build>
-                                        <from>openjdk:8</from>
-                                        <assembly>
-                                            <targetDir>/deployments</targetDir>
-                                            <inline>
-                                                <fileSets>
-                                                    <fileSet>
-                                                        <directory>${project.build.directory}/docker-helloworld-acr-1.0-parent-spring-boot.jar</directory>
-                                                    </fileSet>
-                                                </fileSets>
-                                            </inline>
-                                        </assembly>
-                                        <workdir>/deployments</workdir>
-                                        <cmd>java -jar docker-helloworld-acr-1.0-parent-spring-boot.jar</cmd>
-                                    </build>
-                                </image>
-                            </images>
-                            <authConfig>
-                                <push>
-                                    <username>acrfcngrptest</username>
-                                    <password>**</password>
-                                </push>
-                            </authConfig>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
