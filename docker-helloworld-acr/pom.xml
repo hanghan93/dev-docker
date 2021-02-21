@@ -59,11 +59,11 @@
                             </build>
                         </image>
                     </images>
-                    <registry>acrfcngrptest.azurecr.io</registry>
+                    <registry>**.azurecr.io</registry>
                     <authConfig>
                         <push>
-                            <username>acrfcngrptest</username>
-                            <password>W+YevDpvqA4FALYU5E7nopqn3HjdvW9k</password>
+                            <username>**</username>
+                            <password>**</password>
                         </push>
                     </authConfig>
                 </configuration>
