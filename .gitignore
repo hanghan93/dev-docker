@@ -1,2 +1,4 @@
 # Project exclude paths
-/dokr-helloworld/target/
+/docker-helloworld-acr/target/
+/docker-helloworld-simple/target/
+/docker-helloworld-xml/target/

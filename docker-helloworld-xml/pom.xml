@@ -38,42 +38,32 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>hanghan93/docker-helloworld-xml</name>
+                            <build>
+                                <from>openjdk:8</from>
+                                <assembly>
+                                    <targetDir>/deployments</targetDir>
+                                    <inline>
+                                        <fileSets>
+                                            <fileSet>
+                                                <directory>${project.build.directory}/docker-helloworld-xml-1.0-SNAPSHOT-spring-boot.jar</directory>
+                                            </fileSet>
+                                        </fileSets>
+                                    </inline>
+                                </assembly>
+                                <workdir>/deployments</workdir>
+                                <cmd>java -jar docker-helloworld-xml-1.0-SNAPSHOT-spring-boot.jar</cmd>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>context-and-file</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.jkube</groupId>
-                        <artifactId>kubernetes-maven-plugin</artifactId>
-                        <configuration>
-                            <images>
-                                <image>
-                                    <name>hanghan93/dokr-helloworld-xml</name>
-                                    <build>
-                                        <from>openjdk:8</from>
-                                        <assembly>
-                                            <targetDir>/deployments</targetDir>
-                                            <inline>
-                                                <fileSets>
-                                                    <fileSet>
-                                                        <directory>${project.build.directory}/dokr-helloworld-xml-1.0-SNAPSHOT-spring-boot.jar</directory>
-                                                    </fileSet>
-                                                </fileSets>
-                                            </inline>
-                                        </assembly>
-                                        <workdir>/deployments</workdir>
-                                        <cmd>java -jar dokr-helloworld-xml-1.0-SNAPSHOT-spring-boot.jar</cmd>
-                                    </build>
-                                </image>
-                            </images>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
