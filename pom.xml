@@ -17,6 +17,9 @@
         <module>docker-helloworld-simple</module>
         <module>docker-helloworld-xml</module>
         <module>docker-helloworld-acr</module>
+        <module>k8s-generate-resources</module>
+        <module>k8s-generate-resources-fragments</module>
+        <module>k8s-apply-resource-aks</module>
     </modules>
 
 </project>

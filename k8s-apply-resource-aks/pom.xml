@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jkube-k8s-maven</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-parent</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <version>1.0-SNAPSHOT</version>
+
+    <artifactId>k8s-apply-resource-aks</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.jkube</groupId>
+            <artifactId>kubernetes-maven-plugin</artifactId>
+            <version>${jkube.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>spring-boot</classifier>
+                            <mainClass>HelloWorld</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+                <configuration>
+                    <images>
+                        <image>
+                            <registry>acrhardikpocs.azurecr.io</registry>
+                            <name>hanghan93/k8s-apply-resource-aks</name>
+                            <build>
+                                <from>openjdk:8</from>
+                                <assembly>
+                                    <targetDir>/deployments</targetDir>
+                                    <inline>
+                                        <fileSets>
+                                            <fileSet>
+                                                <directory>${project.build.directory}/k8s-apply-resource-aks-1.0-SNAPSHOT-spring-boot.jar</directory>
+                                            </fileSet>
+                                        </fileSets>
+                                    </inline>
+                                </assembly>
+                                <workdir>/deployments</workdir>
+                                <cmd>java -jar k8s-apply-resource-aks-1.0-SNAPSHOT-spring-boot.jar</cmd>
+                            </build>
+                        </image>
+                    </images>
+                    <registry>acrhardikpocs.azurecr.io</registry>
+<!--                    <authConfig>-->
+<!--                        <push>-->
+<!--                            <username>acrhardikpocs</username>-->
+<!--                            <password>**</password>-->
+<!--                        </push>-->
+<!--                    </authConfig>-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
