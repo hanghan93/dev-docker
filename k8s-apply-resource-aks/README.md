@@ -98,6 +98,9 @@ spec:
       imagePullSecrets:
         - name: regcred
 ```
+
+##### Apply Kubernetes resource yaml file to Kubernetes cluster
+
 Let's run the final command and see output:
 
 ``` java
@@ -105,8 +108,14 @@ mvn clean package -Djkube.docker.username=acrhardikpocs -Djkube.docker.password=
 ```
 Here, 
 | Goal  | Description |
-| :---:  | :---:  |
+| :---| :---|
 |k8s:build  | Build Docker image as per the plugin configuration  |
 |k8s:resource  | It will generate Kubernetes manifest file as per the plugin configuration and resources fragment  |
 |k8s:resource  |Push Docker image to ACR  |
 |k8s:apply  | Deploy resources to AKS|
+
+##### Check the running status of pods
+```
+kubectl get pods -w
+kubectl pod logs *podname*
+```
