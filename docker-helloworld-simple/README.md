@@ -30,4 +30,5 @@ You can check docker image in your local repository by running below command.
  ```sh
 docker image ls
  ```
+
 ![Screenshot](https://github.com/hanghan93/jkube-k8s-maven/blob/master/docker-helloworld-simple/src/main/resources/refImg/docker.JPG)
