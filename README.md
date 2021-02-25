@@ -2,6 +2,13 @@
 
 The kubernetes-maven-plugin brings Java applications on to Kubernetes. It provides a tight integration into Maven and benefits from the build configuration already provided.
 
+```xml
+        <dependency>
+            <groupId>org.eclipse.jkube</groupId>
+            <artifactId>kubernetes-maven-plugin</artifactId>
+            <version>${jkube.version}</version>
+        </dependency>
+```
 In this module we are going to cover the following.
 
 1. [Build Docker image using the external Dockerfile provided.](https://github.com/hanghan93/jkube-k8s-maven/tree/master/docker-helloworld-simple)

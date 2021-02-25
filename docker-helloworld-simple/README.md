@@ -1,9 +1,6 @@
-# 1. docker-helloworld-simple
-### You'll see in this module..
-#### 1. Learn how to use jkube-k8s-maven plugin
-#### 2. Use manually created Dockerfile and build image using that file
-This module is useful to create a small java application, where you're going to create a executable jar file, in addition, you'll see how to create a docker image.
+# 1. Build Docker image using the external Dockerfile provided.
 
+In this module we are going to create a executable jar file, in addition to that you'll see how to build a Docker image from Dockerfile.
 
 Here, I created Dockerfile manually, you can create Dockerfile in any directory with any name you want as long as you pass $contextDir and $dockerFile param in a plugin configuration, please check it out the pom.xml file.
 

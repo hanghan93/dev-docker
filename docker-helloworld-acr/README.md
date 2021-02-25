@@ -1,17 +1,12 @@
-# 3. docker-helloworld-acr
-###In this module we will see how to generate a Dockerfile on the fly by xml configuration and push docker images to Azure Container Registry
+# 3. Build and Push Docker image to remote repository (Azure Container Registry).
 
 This module is useful to push images to remote repository, here I've used Azure Container Registry (ACR), but you can use any other remote repo, approach will be the same.
 ###Prerequisite:
-1. [Simple Docker image build using Dockerfile (Zero Config)](https://github.com/hanghan93/jkube-k8s-maven/tree/master/docker-helloworld-simple)
-2. [Build Docker image using XML configuration](https://github.com/hanghan93/jkube-k8s-maven/tree/master/docker-helloworld-xml)
+1. [Build Docker image using the external Dockerfile provided.](https://github.com/hanghan93/jkube-k8s-maven/tree/master/docker-helloworld-simple)
+2. [Build Docker image using the XML build configuration](https://github.com/hanghan93/jkube-k8s-maven/tree/master/docker-helloworld-xml)
 3. Create ACR
 
-Please clone the repository if you haven't yet using the below command
-```git
-cd folder/to/clone-into/
-git clone https://github.com/hanghan93/jkube-k8s-maven.git
-```
+
 The only difference from the [previous module](https://github.com/hanghan93/jkube-k8s-maven/tree/master/docker-helloworld-xml) is that push images to remote registry.
 There are many ways to configure and authenticate a remote repo, please have a look at [official documentation](https://www.eclipse.org/jkube/docs/kubernetes-maven-plugin#authentication). Here I've shown only using XML configuration:
 ```xml        
